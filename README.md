@@ -1,6 +1,7 @@
 # chat_app
 
-A new Flutter project.
+ Flutter application. Chatting app allows you to communicate with friends. It enables you to send and receive messages.
+
 
 ## Getting Started
 
