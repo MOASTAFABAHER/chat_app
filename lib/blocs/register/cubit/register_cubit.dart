@@ -8,6 +8,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
+import '../../../service/local/sp__keys.dart';
+import '../../../service/local/sp_helper.dart';
+
 part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
@@ -23,6 +26,8 @@ class RegisterCubit extends Cubit<RegisterState> {
             email: emailController.text, password: passwordController.text)
         .then((value) {
       uId = value.user!.uid;
+      SharedPrefrenceHelper.saveData(
+          key: SharedPreferencesKeys.uId, value: uId);
       print('uId register:$uId');
       userCreate(
           email: emailController.text,

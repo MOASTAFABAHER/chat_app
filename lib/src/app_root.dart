@@ -1,11 +1,13 @@
+import 'package:chat_app/screens/chat_item_list.dart';
 import 'package:chat_app/screens/register_screen.dart';
+import 'package:chat_app/service/local/sp__keys.dart';
+import 'package:chat_app/service/local/sp_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class AppRoot extends StatelessWidget {
   const AppRoot({Key? key}) : super(key: key);
@@ -19,9 +21,11 @@ class AppRoot extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
-        
           debugShowCheckedModeBanner: false,
-          home:  RegisterScreen(),
+          home: SharedPrefrenceHelper.getData(key: SharedPreferencesKeys.uId) !=
+                  null
+              ? ChatItemLsitScreen()
+              : RegisterScreen(),
         );
       },
     );

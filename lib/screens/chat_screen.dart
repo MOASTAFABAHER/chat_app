@@ -4,6 +4,8 @@ import 'package:chat_app/components/my__text.dart';
 import 'package:chat_app/components/reciver_massage.dart';
 import 'package:chat_app/components/sender_massage.dart';
 import 'package:chat_app/models/app_colors.dart';
+import 'package:chat_app/service/local/sp__keys.dart';
+import 'package:chat_app/service/local/sp_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -102,7 +104,8 @@ class ChatScreen extends StatelessWidget {
                       IconButton(
                           onPressed: () {
                             cubit.sendMassege(
-                                senderUId: registerUId ?? senderUId!,
+                                senderUId: SharedPrefrenceHelper.getData(
+                                    key: SharedPreferencesKeys.uId),
                                 reciverId: reciverId!,
                                 dateTime: DateTime.now().toString(),
                                 text: cubit.massageController.text);
