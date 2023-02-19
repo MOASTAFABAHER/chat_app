@@ -49,7 +49,7 @@ class LoginScreen extends StatelessWidget {
                 AppNavigator.appNavigator(
                     context,
                     ChatItemLsitScreen(
-                      uIdLogin: uIdLogin,
+                      uIdLogin: LoginCubit.get(context).uIdLogin,
                     ),
                     isFinished: true);
               }
@@ -114,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                                     context, RegisterScreen(),
                                     isFinished: true);
                               },
-                              child: const Text('sign up'))
+                              child: Text('sign up'))
                         ],
                       ),
                       SizedBox(

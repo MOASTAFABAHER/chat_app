@@ -41,12 +41,12 @@ class RegisterScreen extends StatelessWidget {
               if (state is CreateuserSuccses) {
                 print('Function $uId');
                 ToastConfig.showToast(
-                    msg: 'Wellcome TO Chatatak App ',
+                    msg: 'Wellcome TO Chattatak App',
                     toastStates: ToastStates.Success);
                 AppNavigator.appNavigator(
                     context,
                     ChatItemLsitScreen(
-                      uId: uId!,
+                      uId: RegisterCubit.get(context).uId,
                     ),
                     isFinished: true);
               }
