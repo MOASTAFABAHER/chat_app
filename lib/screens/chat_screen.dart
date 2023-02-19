@@ -95,7 +95,7 @@ class ChatScreen extends StatelessWidget {
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(20)),
-                                hintText: 'Enter your Massege here '),
+                                hintText: 'Enter your message here '),
                           ),
                         ),
                       ),

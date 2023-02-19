@@ -41,6 +41,18 @@ class LoginScreen extends StatelessWidget {
                 ToastConfig.showToast(
                     msg: 'Error', toastStates: ToastStates.Error);
               }
+              if (state is LoginSuccsessState) {
+                print('login $uIdLogin');
+                ToastConfig.showToast(
+                    msg: 'Wellcome To Chatatak',
+                    toastStates: ToastStates.Success);
+                AppNavigator.appNavigator(
+                    context,
+                    ChatItemLsitScreen(
+                      uIdLogin: uIdLogin,
+                    ),
+                    isFinished: true);
+              }
             },
             builder: (context, state) {
               var cubit = LoginCubit.get(context);
@@ -93,7 +105,7 @@ class LoginScreen extends StatelessWidget {
                       Row(
                         children: [
                           MyText(
-                            text: 'Don\'t have an Account ',
+                            text: 'Don\'t have an Account ? ',
                             fontSize: 14.sp,
                           ),
                           TextButton(
@@ -102,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                                     context, RegisterScreen(),
                                     isFinished: true);
                               },
-                              child: Text('sign up'))
+                              child: const Text('sign up'))
                         ],
                       ),
                       SizedBox(
@@ -112,18 +124,6 @@ class LoginScreen extends StatelessWidget {
                           function: () {
                             cubit.login(cubit.emailController.text,
                                 cubit.passwordController.text);
-                            if (state is LoginSuccsessState) {
-                              print('login $uIdLogin');
-                              ToastConfig.showToast(
-                                  msg: 'Wellcome To Chatatak',
-                                  toastStates: ToastStates.Success);
-                              AppNavigator.appNavigator(
-                                  context,
-                                  ChatItemLsitScreen(
-                                    uIdLogin: uIdLogin,
-                                  ),
-                                  isFinished: true);
-                            }
                           },
                           weight: double.infinity,
                           hight: 40.h,

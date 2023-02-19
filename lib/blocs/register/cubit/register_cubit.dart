@@ -16,14 +16,18 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   String? uId;
-  userRegsiter(String email, String password) {
+  userRegsiter() {
     emit(RegisterLoadingState());
     FirebaseAuth.instance
-        .createUserWithEmailAndPassword(email: email, password: password)
+        .createUserWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text)
         .then((value) {
       uId = value.user!.uid;
       print('uId register:$uId');
-      userCreate(email: email, password: password, uId: uId!);
+      userCreate(
+          email: emailController.text,
+          password: passwordController.text,
+          uId: uId!);
       emit(RegisterSuccsessState());
     }).catchError((error) {
       emit(RegisterErrorState());

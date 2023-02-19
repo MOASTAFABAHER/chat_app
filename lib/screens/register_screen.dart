@@ -122,16 +122,7 @@ class RegisterScreen extends StatelessWidget {
                     ),
                     CustomButton(
                         function: () {
-                          cubit.userRegsiter(cubit.emailController.text,
-                              cubit.passwordController.text);
-                          if (state is CreateuserSuccses) {
-                            AppNavigator.appNavigator(
-                                context,
-                                ChatItemLsitScreen(
-                                  uId: cubit.uId,
-                                ),
-                                isFinished: true);
-                          }
+                          cubit.userRegsiter();
                         },
                         weight: double.infinity,
                         hight: 40.h,
