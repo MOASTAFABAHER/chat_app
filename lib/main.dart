@@ -5,5 +5,5 @@ import 'package:flutter/cupertino.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(AppRoot());
+  runApp(const AppRoot());
 }

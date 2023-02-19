@@ -65,10 +65,12 @@ class ChatScreen extends StatelessWidget {
                           var massage = cubit.massagesList[index];
                           if (massage.reciverId == reciverId) {
                             return SenderMassage(
+                              dateTime: massage.dateTime!,
                               massage: massage.text!,
                             );
                           } else {
                             return ReciverMassage(
+                              dateTime: massage.dateTime!,
                               massage: massage.text!,
                             );
                           }

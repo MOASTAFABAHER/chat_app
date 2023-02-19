@@ -8,17 +8,29 @@ import '../models/app_colors.dart';
 class MyText extends StatelessWidget {
   String text;
   var fontSize;
+  TextAlign? textAlign;
   FontWeight? fontWeight;
-  MyText({required this.text, this.fontSize, this.fontWeight});
+  TextOverflow? textOverflow;
+  int? maxLines;
+  MyText(
+      {required this.text,
+      this.fontSize,
+      this.fontWeight,
+      this.textAlign,
+      this.maxLines,
+      this.textOverflow});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
+      maxLines: maxLines,
+      overflow: textOverflow,
       style: TextStyle(
           color: AppColors.kWhite,
           fontSize: fontSize ?? 18.sp,
           fontWeight: fontWeight ?? FontWeight.normal),
+      textAlign: textAlign,
     );
   }
 }
